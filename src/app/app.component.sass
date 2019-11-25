@@ -1,11 +1,8 @@
 html
-  background-image: url('../assets/background.jpg')
 
 :host
   .actions
-    position: absolute
-    top: 0
-    right: 2rem
+    display: flex
     > button
       background: none
       color: inherit
@@ -14,6 +11,9 @@ html
       font: inherit
       cursor: pointer
       outline: inherit
+      display: flex
+      align-items: center
+      margin: 1rem 1rem
       > i-feather
         color: transparentize(#fff, 0.2)
     > button:hover

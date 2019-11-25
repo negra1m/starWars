@@ -5,7 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
+
+// This component MUST and will be partioned out of app component to a different source
+// App component will serve for render the route outlet component
+
 export class AppComponent implements OnInit {
+  title = 'star-wars';
   audio = new Audio();
   iconName = '2';
   ngOnInit() {
@@ -21,5 +26,9 @@ export class AppComponent implements OnInit {
 
   muteUnmute() {
     this.audio.volume ? (this.audio.volume = 0, this.iconName = 'x') : (this.audio.volume = 0.1, this.iconName = '2');
+  }
+
+  skip() {
+    // TODO
   }
 }

@@ -1,12 +1,21 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { FeatherModule } from 'angular-feather';
+import { VolumeX, Volume2, ArrowRight } from 'angular-feather/icons';
+const icons = {
+  VolumeX,
+  Volume2,
+  ArrowRight
+};
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        FeatherModule.pick(icons)
       ],
       declarations: [
         AppComponent
@@ -20,16 +29,12 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'star-wars'`, () => {
+  it('should change volume', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('star-wars');
+    fixture.componentInstance.audio.volume = 0;
+    fixture.componentInstance.muteUnmute();
+    fixture.detectChanges();
+    expect(fixture.componentInstance.audio.volume).toBeGreaterThanOrEqual(0.1);
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('star-wars app is running!');
-  });
 });
