@@ -1,5 +1,20 @@
+:host {
+  font-family: "Oswald", sans-serif;
+  & > .select {
+    position: absolute;
+    background-color: transparentize($color: #333, $amount: 0.6);
+
+    & > span {
+      font-size: 40px;
+      color: transparentize($color: #fff, $amount: 0.4);
+    }
+  }
+}
+
 .text {
   text-align: center;
+  margin-top: 5rem;
+  font-size: 50px;
 }
 
 .text p {
@@ -12,8 +27,65 @@
 }
 
 .container {
+  color: #fae865;
   max-height: 30rem;
   margin: 0 auto;
   position: relative;
   max-width: 100vw;
+}
+
+.title {
+  font-size: 8.5rem;
+}
+
+.subtitle {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.text {
+  text-align: center;
+  transform: perspective(800px) rotateX(25deg);
+}
+
+.text {
+  text-align: center;
+  transform: perspective(800px) rotateX(25deg) translateY(40%);
+  animation-name: up;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-delay: 3s;
+}
+
+.select {
+  position: fixed;
+  left: 0;
+  bottom: 2rem;
+  animation-name: show;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-delay: 25s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  opacity: 0;
+}
+
+@keyframes up {
+  15% {
+    transform: perspective(800px) rotateX(25deg) translateY(40%);
+  }
+
+  100% {
+    transform: perspective(800px) rotateX(25deg) translateY(-220%);
+  }
+}
+
+@keyframes show {
+  15% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
