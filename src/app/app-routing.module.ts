@@ -1,12 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { IntroComponent } from './modules/intro/pages/intro/intro.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { IntroComponent } from "./modules/intro-page/intro.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/intro', pathMatch: 'full' },
-  { path: 'intro', component: IntroComponent },
+  { path: "", redirectTo: "/intro", pathMatch: "full" },
+  { path: "intro", component: IntroComponent }
   // { path: '/intro', component: IntroComponent }
   // {
   // path: 'settings',
@@ -19,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
