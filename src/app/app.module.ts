@@ -15,6 +15,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { FeatherModule } from 'angular-feather';
 import { VolumeX, Volume2, ArrowRight } from 'angular-feather/icons';
 import { sharedModules } from './shared/modules';
+import { IntroModule } from './modules/intro/intro.module';
 
 const icons = {
   VolumeX,
@@ -30,6 +31,7 @@ const icons = {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    IntroModule,
     sharedModules,
     FeatherModule.pick(icons)
   ],

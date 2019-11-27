@@ -5,8 +5,9 @@ import { IntroComponent } from './modules/intro/pages/intro/intro.component';
 
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
-  { path: '/intro', component: IntroComponent }
+  { path: '', redirectTo: '/intro', pathMatch: 'full' },
+  { path: 'intro', component: IntroComponent },
+  // { path: '/intro', component: IntroComponent }
   // {
   // path: 'settings',
   // loadChildren: () => import('./').then(m => m.SettingsModule),
