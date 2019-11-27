@@ -13,11 +13,11 @@ import { APP_BASE_HREF } from "@angular/common";
 import { FeatherModule } from "angular-feather";
 import { VolumeX, Volume2, ArrowRight } from "angular-feather/icons";
 import { sharedModules } from "./shared/modules";
-import { IntroModule } from "./modules/intro/intro.module";
+import { IntroModule } from "./modules/intro-page/intro.module";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { HeaderComponent } from "./modules/main/components/header/header.component";
-import { PainelComponent } from "./modules/main/components/painel/painel.component";
+import { HeaderComponent } from "./modules/main-page/components/header/header.component";
+import { PainelComponent } from "./modules/main-page/components/painel/painel.component";
 
 const icons = {
   VolumeX,
@@ -30,6 +30,7 @@ const icons = {
   imports: [
     BrowserModule,
     IntroModule,
+    sharedModules,
     FeatherModule.pick(icons),
     AppRoutingModule
   ],
