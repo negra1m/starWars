@@ -1,0 +1,13 @@
+.anim {
+  background: url("src/assets/background.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat center center fixed;
+  position: relative;
+  -webkit-animation: zoomin 10s ease-in;
+  animation: zoomin 10s ease-in infinite;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
