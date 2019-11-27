@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output } from "@angular/core";
+import { EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-header",
@@ -6,12 +7,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
+  @Output() skipped;
   title = "star-wars";
   audio = new Audio();
   iconName = "2";
+  show = false;
 
   constructor() {
-    // If needed services integration later
+    this.skipped = new EventEmitter<string>();
   }
 
   ngOnInit() {
@@ -32,6 +35,7 @@ export class HeaderComponent implements OnInit {
   }
 
   skip() {
-    // TODO
+    this.show = true;
+    this.skipped.emit("clicked");
   }
 }

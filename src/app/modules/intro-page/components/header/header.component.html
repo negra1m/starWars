@@ -1,4 +1,4 @@
-<div class="logo">
+<div *ngIf="show" [ngClass]="show ? 'logo' : 'logo anim'">
   <img src="../assets/starwars.png" />
 </div>
 <div class="actions">

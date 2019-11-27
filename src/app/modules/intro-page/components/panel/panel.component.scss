@@ -1,0 +1,67 @@
+:host {
+  position: fixed;
+  top: 8rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  & > h3 {
+    position: fixed;
+    top: 8rem;
+    left: 0;
+    right: 0;
+    color: #fae865;
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  & > div {
+    animation-name: show;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    opacity: 0;
+    transition: all;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+
+    & > a {
+      display: flex;
+      align-items: center;
+      & > img {
+        color: #fff;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        height: auto;
+        width: 25rem;
+        border-radius: 50%;
+
+        & > span {
+          fill: white;
+        }
+        &:hover {
+          box-shadow: 0px 0px 116px 22px rgba(255, 255, 255, 0.84);
+          -webkit-box-shadow: 0px 0px 116px 22px rgba(255, 255, 255, 0.84);
+          -moz-box-shadow: 0px 0px 116px 22px rgba(255, 255, 255, 0.84);
+        }
+      }
+    }
+  }
+}
+
+@keyframes show {
+  15% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
