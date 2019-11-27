@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { IntroComponent } from './modules/intro/pages/intro/intro.component';
 
 
 const routes: Routes = [
   { path: '', component: AppComponent },
+  { path: '/intro', component: IntroComponent }
   // {
   // path: 'settings',
   // loadChildren: () => import('./').then(m => m.SettingsModule),

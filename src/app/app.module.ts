@@ -14,6 +14,8 @@ import { APP_BASE_HREF } from '@angular/common';
  */
 import { FeatherModule } from 'angular-feather';
 import { VolumeX, Volume2, ArrowRight } from 'angular-feather/icons';
+import { sharedModules } from './shared/modules';
+
 const icons = {
   VolumeX,
   Volume2,
@@ -28,6 +30,7 @@ const icons = {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    sharedModules,
     FeatherModule.pick(icons)
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
