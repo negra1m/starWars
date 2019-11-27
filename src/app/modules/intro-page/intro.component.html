@@ -1,0 +1,6 @@
+<ng-container>
+  <app-header (skipped)="showOptions()"></app-header>
+  <app-intro-container *ngIf="!showPanel"></app-intro-container>
+  <app-panel *ngIf="showPanel"></app-panel>
+  <router-outlet></router-outlet>
+</ng-container>

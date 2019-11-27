@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { HeaderComponent } from "./components/header/header.component";
 import { IntroContainerComponent } from "./components/intro-container/intro-container.component";
 import { IntroComponent } from "./intro.component";
-import { SharedModule } from "./node_modules/src/app/shared/shared.module";
+import { SharedModule } from "src/app/shared/shared.module";
 import { PanelComponent } from "./components/panel/panel.component";
 
 @NgModule({
