@@ -18,7 +18,7 @@ export class PanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.swapiService.get().subscribe(res => {
+    this.swapiService.getPeople().subscribe(res => {
       console.log(res);
     });
   }

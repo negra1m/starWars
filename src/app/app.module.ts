@@ -16,6 +16,11 @@ import { IntroModule } from "./modules/intro-page/intro.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { MainModule } from "./modules/main-page/main.module";
 
+/**
+ * Services
+ */
+import { SwApiService } from "./core/services/sw-api.service";
+
 const icons = {
   VolumeX,
   Volume2,
@@ -44,7 +49,8 @@ export class LowerCaseUrlSerializer extends DefaultUrlSerializer {
     {
       provide: UrlSerializer,
       useClass: LowerCaseUrlSerializer
-    }
+    },
+    SwApiService
   ],
   bootstrap: [AppComponent]
 })

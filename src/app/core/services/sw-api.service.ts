@@ -9,18 +9,18 @@ export class SwApiService {
   // Define all routes and its children.
   private url = {
     base: "https://swapi.co/api/",
-    people: "http://swapi.co/api/people/",
-    planets: "http://swapi.co/api/planets/",
-    films: "http://swapi.co/api/films/",
-    species: "http://swapi.co/api/species/",
-    vehicles: "http://swapi.co/api/vehicles/",
-    starships: "http://swapi.co/api/starships/"
+    people: "https://swapi.co/api/people/",
+    planets: "https://swapi.co/api/planets/",
+    films: "https://swapi.co/api/films/",
+    species: "https://swapi.co/api/species/",
+    vehicles: "https://swapi.co/api/vehicles/",
+    starships: "https://swapi.co/api/starships/"
   };
 
   constructor(private http: HttpClient) {}
 
   private getCall(url: string) {
-    return this.http.get(url);
+    return this.http.get(url + "?format=json");
   }
 
   /**
