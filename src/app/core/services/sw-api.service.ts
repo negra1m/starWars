@@ -19,63 +19,86 @@ export class SwApiService {
 
   constructor(private http: HttpClient) {}
 
-  // Private Functions for call handler
-
   private getCall(url: string) {
     return this.http.get(url);
   }
 
-  getRoot(): Observable<any> {
+  /**
+   * Get methods by or not search input
+   */
+  get(): Observable<any> {
     return this.getCall(this.url.base);
   }
 
-  getPeople(page: number = null): Observable<any> {
+  getPeople(page: number = null, input: string = ""): Observable<any> {
     let url: string = this.url.people;
     if (page) {
       url += "?page=" + page;
     }
+    if (input) {
+      url += "?search=" + input;
+    }
     return this.getCall(url);
   }
 
-  getPlanets(page: number = null): Observable<any> {
+  getPlanets(page: number = null, input: string = ""): Observable<any> {
     let url: string = this.url.planets;
     if (page) {
       url += "?page=" + page;
     }
+    if (input) {
+      url += "?search=" + input;
+    }
     return this.getCall(url);
   }
 
-  getFilms(page: number = null): Observable<any> {
+  getFilms(page: number = null, input: string = ""): Observable<any> {
     let url: string = this.url.films;
     if (page) {
       url += "?page=" + page;
     }
+    if (input) {
+      url += "?search=" + input;
+    }
     return this.getCall(url);
   }
 
-  getSpecies(page: number = null): Observable<any> {
+  getSpecies(page: number = null, input: string = ""): Observable<any> {
     let url: string = this.url.base + "species/";
     if (page) {
       url += "?page=" + page;
     }
+    if (input) {
+      url += "?search=" + input;
+    }
     return this.getCall(url);
   }
 
-  getVehicles(page: number = null): Observable<any> {
+  getVehicles(page: number = null, input: string = ""): Observable<any> {
     let url: string = this.url.vehicles;
     if (page) {
       url += "?page=" + page;
     }
+    if (input) {
+      url += "?search=" + input;
+    }
     return this.getCall(url);
   }
 
-  getStarships(page: number = null): Observable<any> {
+  getStarships(page: number = null, input: string = ""): Observable<any> {
     let url: string = this.url.starships;
     if (page) {
       url += "?page=" + page;
     }
+    if (input) {
+      url += "?search=" + input;
+    }
     return this.getCall(url);
   }
+
+  /**
+   * Search By ID
+   */
 
   getPerson(id: number): Observable<any> {
     const url: string = this.url.people + id + "/";
