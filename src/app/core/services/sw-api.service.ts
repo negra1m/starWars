@@ -26,9 +26,6 @@ export class SwApiService {
   /**
    * Get methods by or not search input
    */
-  get(): Observable<any> {
-    return this.getCall(this.url.base);
-  }
 
   getPeople(page: number = null, input: string = ""): Observable<any> {
     let url: string = this.url.people;
