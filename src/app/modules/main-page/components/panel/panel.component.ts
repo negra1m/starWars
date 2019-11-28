@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import { map } from "rxjs/operators";
+import { SwApiService } from "src/app/core/services/sw-api.service";
 
 @Component({
   selector: "app-panel",
@@ -9,10 +9,17 @@ import { map } from "rxjs/operators";
 })
 export class PanelComponent implements OnInit {
   choice$: any;
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private swapiService: SwApiService
+  ) {
     this.choice$ = this.route.snapshot.paramMap.get("side");
     console.log(this.choice$);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.swapiService.get().subscribe(res => {
+      console.log(res);
+    });
+  }
 }
