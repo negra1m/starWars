@@ -2,16 +2,17 @@ import { Component, OnInit, Output } from "@angular/core";
 import { EventEmitter } from "@angular/core";
 
 @Component({
-  selector: "app-header",
-  templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.scss"]
+  selector: "app-intro-header",
+  templateUrl: "./intro-header.component.html",
+  styleUrls: ["./intro-header.component.scss"]
 })
-export class HeaderComponent implements OnInit {
+export class IntroHeaderComponent implements OnInit {
   @Output() skipped;
   title = "star-wars";
   audio = new Audio();
   iconName = "2";
-  show = false;
+  showSkip = false;
+  disabled = true;
 
   constructor() {
     this.skipped = new EventEmitter<string>();
@@ -19,13 +20,21 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.playAudio();
+    setInterval(() => {
+      this.disabled = false;
+    }, 4000);
+  }
+
+  stopAudio() {
+    this.audio = null;
   }
 
   playAudio() {
     this.audio.src = encodeURIComponent("assets/starwars.mp3");
+    this.audio.autoplay = true;
     this.audio.load();
-    this.audio.play();
     this.audio.volume = 0.1;
+    this.audio.play();
   }
 
   muteUnmute() {
@@ -35,7 +44,7 @@ export class HeaderComponent implements OnInit {
   }
 
   skip() {
-    this.show = true;
+    this.showSkip = true;
     this.skipped.emit("clicked");
   }
 }

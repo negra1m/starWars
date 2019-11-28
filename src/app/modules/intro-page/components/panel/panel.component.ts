@@ -12,8 +12,6 @@ export class PanelComponent implements OnInit {
   ngOnInit() {}
 
   goToMain(decision) {
-    this.router.navigate([`main`], {
-      queryParams: { side: decision }
-    });
+    this.router.navigate(["main", decision]);
   }
 }
