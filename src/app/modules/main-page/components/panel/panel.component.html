@@ -3,13 +3,13 @@
   <div class="wrapper">
     <div class="panel-header">
       <!-- search and name -->
-      <h2>StormTrooper class A</h2>
+      <h2>{{ title }}</h2>
       <div class="search">
         <input placeholder="Search Persons, Movies, etc" type="text" />
         <button [class]="'btn-' + choice$">Take a "Luke"</button>
       </div>
     </div>
-    <div class="description">
+    <div *ngIf="selection; else choose" class="description selected">
       <!-- picture and description -->
       <div>
         a
@@ -20,3 +20,12 @@
   </div>
 </div>
 <i-feather name="chevron-right"></i-feather>
+
+<ng-template #choose>
+  <div class="description choose">
+    <div class="item" *ngFor="let option of options">
+      <i-feather name="{{ option.icon }}"></i-feather>
+      <span>{{ option.category }}</span>
+    </div>
+  </div>
+</ng-template>
