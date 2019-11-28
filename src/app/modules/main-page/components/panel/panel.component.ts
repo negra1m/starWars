@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { Options } from "src/app/core/models/options.model";
 
 @Component({
   selector: "app-panel",
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 export class PanelComponent implements OnInit {
   choice$: any;
   selection: any;
-  options = [{}];
+  options: Options[];
   title = "Choose a category";
 
   constructor(private route: ActivatedRoute) {
@@ -25,4 +26,8 @@ export class PanelComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  search(category: string) {
+    console.log("called >>", category);
+  }
 }

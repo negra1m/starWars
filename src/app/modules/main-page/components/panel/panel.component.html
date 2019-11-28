@@ -24,8 +24,11 @@
 <ng-template #choose>
   <div class="description choose">
     <div class="item" *ngFor="let option of options">
-      <i-feather name="{{ option.icon }}"></i-feather>
-      <span>{{ option.category }}</span>
+      <i-feather
+        (click)="search(option.category)"
+        name="{{ option.icon }}"
+      ></i-feather>
+      <span> {{ option.category }} </span>
     </div>
   </div>
 </ng-template>
