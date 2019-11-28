@@ -5,36 +5,45 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
-import { APP_BASE_HREF } from "@angular/common";
 
 /**
  * Imports
  */
-import { FeatherModule } from "angular-feather";
-import { VolumeX, Volume2, ArrowRight } from "angular-feather/icons";
 import { sharedModules } from "./shared/modules";
 import { IntroModule } from "./modules/intro-page/intro.module";
-
 import { AppRoutingModule } from "./app-routing.module";
-import { HeaderComponent } from "./modules/main-page/components/header/header.component";
-import { PainelComponent } from "./modules/main-page/components/painel/painel.component";
+import { MainModule } from "./modules/main-page/main.module";
+import { IconsModule } from "./shared/modules/icons";
 
-const icons = {
-  VolumeX,
-  Volume2,
-  ArrowRight
-};
+/**
+ * Services
+ */
+import { SwApiService } from "./core/services/sw-api.service";
+import { DefaultUrlSerializer, UrlTree, UrlSerializer } from "@angular/router";
+
+export class LowerCaseUrlSerializer extends DefaultUrlSerializer {
+  parse(url: string): UrlTree {
+    return super.parse(url.toLowerCase());
+  }
+}
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, PainelComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     IntroModule,
+    MainModule,
     sharedModules,
-    FeatherModule.pick(icons),
+    IconsModule,
     AppRoutingModule
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: "/" }],
+  providers: [
+    {
+      provide: UrlSerializer,
+      useClass: LowerCaseUrlSerializer
+    },
+    SwApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

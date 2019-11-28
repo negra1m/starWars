@@ -1,0 +1,112 @@
+:host {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+
+  & > .arrow {
+    flex: 1;
+  }
+
+  & > .board {
+    flex: 4;
+    border-radius: 0.2rem;
+    height: 90%;
+    padding: 1rem 1rem;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: transparentize($color: #333, $amount: 0.2);
+
+    & > .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.2rem;
+
+      & > .panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & > .search {
+          display: flex;
+          width: 20rem;
+
+          & > input {
+            width: 70%;
+            background-color: #222;
+            color: #fff;
+            border: 1px solid #333;
+          }
+
+          & > button {
+            width: 30%;
+            background-color: #000;
+            outline: none;
+
+            &.btn-empire {
+              &:hover {
+                border: 1px solid #e33b23;
+                color: #e33b23;
+              }
+
+              &:active {
+                border: 1px solid #942615;
+                color: #942615;
+              }
+            }
+
+            &.btn-alliance {
+              &:hover {
+                border: 1px solid #3df1da;
+                color: #3df1da;
+              }
+
+              &:active {
+                border: 1px solid #279687;
+                color: #279687;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* Border panel color */
+    &.alliance {
+      -webkit-box-shadow: 0px 0px 14px 10px #3df1da;
+      box-shadow: 0px 0px 14px 10px #3df1da;
+    }
+
+    &.empire {
+      -webkit-box-shadow: 0px 0px 14px 10px #e33b23;
+      box-shadow: 0px 0px 14px 10px #e33b23;
+    }
+  }
+
+  /**
+  * Icon size
+  */
+  i-feather {
+    cursor: pointer;
+    flex: 1;
+    stroke-width: 0.5px;
+    width: 10rem;
+    height: 10rem;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 
 @Component({
   selector: "app-panel",
@@ -7,11 +7,10 @@ import { Router } from "@angular/router";
   styleUrls: ["./panel.component.scss"]
 })
 export class PanelComponent implements OnInit {
-  constructor(private router: Router) {}
+  choice$: any;
+  constructor(private route: ActivatedRoute) {
+    this.choice$ = this.route.snapshot.paramMap.get("side");
+  }
 
   ngOnInit() {}
-
-  goToMain(decision) {
-    this.router.navigate(["main", decision]);
-  }
 }

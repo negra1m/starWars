@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { IntroHeaderComponent } from "./components/header/intro-header.component";
 
 @Component({
   selector: "app-intro",
@@ -6,6 +7,8 @@ import { Component, OnInit, EventEmitter } from "@angular/core";
   styleUrls: ["./intro.component.scss"]
 })
 export class IntroComponent implements OnInit {
+  @ViewChild(IntroHeaderComponent, { static: false })
+  header: IntroHeaderComponent;
   showPanel: boolean;
 
   constructor() {
@@ -16,6 +19,6 @@ export class IntroComponent implements OnInit {
 
   showOptions() {
     this.showPanel = true;
-    console.log("chegou");
+    this.header.audio.volume = 0.02;
   }
 }
