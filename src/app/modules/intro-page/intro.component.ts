@@ -19,6 +19,6 @@ export class IntroComponent implements OnInit {
 
   showOptions() {
     this.showPanel = true;
-    this.header.audio.volume = 0.02;
+    this.header.audio.volume = 0;
   }
 }

@@ -4,7 +4,7 @@ import { SwApiService } from "src/app/core/services/sw-api.service";
 @Injectable({
   providedIn: "root"
 })
-export class ServicesService {
+export class MainService {
   constructor(private swapiService: SwApiService) {}
 
   getMovies() {
@@ -31,5 +31,45 @@ export class ServicesService {
       });
     });
     return people;
+  }
+
+  getPlanets() {
+    const planets = [];
+    this.swapiService.getPlanets().subscribe(res => {
+      res.results.map(result => {
+        planets.push({});
+      });
+    });
+    return planets;
+  }
+
+  getSpecies() {
+    const species = [];
+    this.swapiService.getPlanets().subscribe(res => {
+      res.results.map(result => {
+        species.push({});
+      });
+    });
+    return species;
+  }
+
+  getVehicles() {
+    const vehicles = [];
+    this.swapiService.getPlanets().subscribe(res => {
+      res.results.map(result => {
+        vehicles.push({});
+      });
+    });
+    return vehicles;
+  }
+
+  getStarships() {
+    const ships = [];
+    this.swapiService.getPlanets().subscribe(res => {
+      res.results.map(result => {
+        ships.push({});
+      });
+    });
+    return ships;
   }
 }

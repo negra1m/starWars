@@ -15,11 +15,11 @@ export class IntroHeaderComponent implements OnInit {
   disabled = true;
 
   constructor() {
+    this.playAudio();
     this.skipped = new EventEmitter<string>();
   }
 
   ngOnInit() {
-    this.playAudio();
     setInterval(() => {
       this.disabled = false;
     }, 4000);
