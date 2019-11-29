@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { Options } from "src/app/core/models/options.model";
+import { MainService } from "../../services/main.service";
 
 @Component({
   selector: "app-panel",
@@ -13,7 +14,7 @@ export class PanelComponent implements OnInit {
   options: Options[];
   title = "Choose a category";
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private service: MainService) {
     this.choice$ = this.route.snapshot.paramMap.get("side");
     this.options = [
       { category: "Movies", icon: "film" },
@@ -27,7 +28,27 @@ export class PanelComponent implements OnInit {
 
   ngOnInit() {}
 
-  search(category: string) {
-    console.log("called >>", category);
+  get(category: string) {
+    switch (category) {
+      case "Movies":
+        console.log((this.selection = this.service.getMovies()));
+        break;
+      case "Characters":
+        this.selection = this.service.getPeople();
+        break;
+      case "Planets":
+        this.selection = this.service.getPlanets();
+        break;
+      case "Species":
+        this.selection = this.service.getSpecies();
+        break;
+      case "Vehicles":
+        this.selection = this.service.getVehicles();
+        break;
+      case "Starships":
+        this.selection = this.service.getStarships();
+        break;
+    }
+    console.log(this.selection);
   }
 }
