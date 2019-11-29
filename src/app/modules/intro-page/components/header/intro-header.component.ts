@@ -15,11 +15,15 @@ export class IntroHeaderComponent implements OnInit {
   disabled = true;
 
   constructor() {
-    this.playAudio();
+    this.audio.src = encodeURIComponent("assets/starwars.mp3");
+    this.audio.load();
+    this.audio.volume = 0.1;
+    this.audio.autoplay = true;
     this.skipped = new EventEmitter<string>();
   }
 
   ngOnInit() {
+    this.playAudio();
     setInterval(() => {
       this.disabled = false;
     }, 4000);
@@ -30,11 +34,9 @@ export class IntroHeaderComponent implements OnInit {
   }
 
   playAudio() {
-    this.audio.src = encodeURIComponent("assets/starwars.mp3");
-    this.audio.autoplay = true;
-    this.audio.load();
-    this.audio.volume = 0.1;
-    this.audio.play();
+    if (this.audio.paused) {
+      this.audio.play();
+    }
   }
 
   muteUnmute() {
